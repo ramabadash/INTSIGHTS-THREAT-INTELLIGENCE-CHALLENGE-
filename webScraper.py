@@ -54,4 +54,10 @@ def from_paste_to_object(paste):
     except:
         return
 
+# ---------- MAIN ---------- #
+
+def main():
+    html_page = get_landing_page("http://strongerw2ise74v3duebgsvug4mehyhlpa7f6kfwnas7zofs3kov7yd.onion/all", "socks5h://127.0.0.1:9050", "http://127.0.0.1:8118")
+    return get_results_to_list(html_page)
+
 print(main())
