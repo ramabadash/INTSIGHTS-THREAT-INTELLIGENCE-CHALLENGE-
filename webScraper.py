@@ -34,7 +34,7 @@ def get_results_to_list(html_code):
         if parsed_obj:
             print(f"\n\n parsed_obj: \n\n {parsed_obj}")
             pastes_list.append(parsed_obj)
-    # print(f"pastes_list :{pastes_list }\n")
+    print(f"pastes_list :{pastes_list }\n")
     return pastes_list
         
 
@@ -70,10 +70,35 @@ def get_paste_content(full_paste_url):
         content += f"{li.text}. "
     return content.strip("\n")
 
+# ---------- GET NUMBER OF PAGES ---------- #
+def get_number_of_pages(html_code):
+    """
+    :html_code: Web page code
+    :return: last page number
+    """
+    pagination_elem = html_code.select(".pagination>li")
+    return pagination_elem[len(pagination_elem) - 2].text
+
 # ---------- MAIN ---------- #
 
 def main():
+    """
+    :return: List with all pastes from all pages
+    """
     html_page = get_landing_page("http://strongerw2ise74v3duebgsvug4mehyhlpa7f6kfwnas7zofs3kov7yd.onion/all")
-    return get_results_to_list(html_page)
+    # Run throw all pages
+    number_of_pages = int(get_number_of_pages(html_page))
+    all_data = []
+    page = 1
 
+    while page < number_of_pages + 1:
+        print(f"page: {page}")
+        html_page = get_landing_page(f"http://strongerw2ise74v3duebgsvug4mehyhlpa7f6kfwnas7zofs3kov7yd.onion/all?page={page}")
+        all_data.append(get_results_to_list(html_page))
+        page += 1
+    
+    return all_data
+
+# ---------- EXEC ---------- #
+   
 main()
