@@ -8,17 +8,11 @@ proxies = {
 }
 
 # ---------- GET LANDING PAGE FOR WEBSITE WITH URL ---------- #
-def get_landing_page(url, socks_proxy, http_proxy):
+def get_landing_page(url):
     """
     url: Website url str
-    socks_proxy: users socks_proxy str
-    http_proxy: users http_proxy str
     return: Landing html page for url
     """
-    proxies = {
-        "socks5h": socks_proxy,
-        "http": http_proxy,
-    }
     try:
         response = requests.get(url, proxies=proxies)
         nice_html = BeautifulSoup(response.text, 'html.parser')
@@ -79,7 +73,7 @@ def get_paste_content(full_paste_url):
 # ---------- MAIN ---------- #
 
 def main():
-    html_page = get_landing_page("http://strongerw2ise74v3duebgsvug4mehyhlpa7f6kfwnas7zofs3kov7yd.onion/all", "socks5h://127.0.0.1:9050", "http://127.0.0.1:8118")
+    html_page = get_landing_page("http://strongerw2ise74v3duebgsvug4mehyhlpa7f6kfwnas7zofs3kov7yd.onion/all")
     return get_results_to_list(html_page)
 
 main()
