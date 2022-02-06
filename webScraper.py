@@ -26,6 +26,7 @@ def get_landing_page(url, socks_proxy, http_proxy):
 def get_results_to_list(html_code): 
     """
     :html_code: Web site html code
+    :return: pastes into objects list
     """
     pastes = html_code.select("#list > .row")
     pastes_list = []
