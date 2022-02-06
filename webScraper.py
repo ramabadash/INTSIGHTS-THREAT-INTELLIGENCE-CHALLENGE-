@@ -21,6 +21,22 @@ def get_landing_page(url, socks_proxy, http_proxy):
     except: 
         print(f"Error with getting {url} page code")
 
+
+# ---------- SET TO PASTES LIST ---------- #
+def get_results_to_list(html_code): 
+    """
+    :html_code: Web site html code
+    """
+    pastes = html_code.select("#list > .row")
+    pastes_list = []
+    for paste in pastes:
+        parsed_obj = from_paste_to_object(paste)
+        if parsed_obj:
+            pastes_list.append(parsed_obj)
+    print(f"pastes_list :{pastes_list }\n")
+    return pastes_list
+        
+
 # ---------- GET PASTE AND RETURN AS OBJ ---------- #
 def from_paste_to_object(paste):
     """
