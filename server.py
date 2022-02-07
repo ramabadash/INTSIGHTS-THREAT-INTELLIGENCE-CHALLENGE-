@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-from models import Paste, NewPate
+from models.models import Paste, NewPate
 from mongoengine import connect
-from webScraper import scrape
+from scraper.webScraper import scrape
 
 # Load .env file using:
 from dotenv import load_dotenv
