@@ -121,4 +121,4 @@ def scrape():
 
 # ---------- EXEC ---------- #
    
-scrape()
+# scrape()

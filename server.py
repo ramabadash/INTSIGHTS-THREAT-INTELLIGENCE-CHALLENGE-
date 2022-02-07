@@ -1,6 +1,7 @@
 from fastapi import FastAPI
-from models import Paste
+from models import Paste, NewPate
 from mongoengine import connect
+from webScraper import scrape
 
 # Load .env file using:
 from dotenv import load_dotenv
@@ -23,3 +24,15 @@ def read_root():
 def get_all_data():
     data = Paste.objects.all()
     return data
+
+# Post all to DB
+@app.post("/post_all")
+def post_all(): 
+    all_pastes = scrape()
+    for paste in all_pastes:
+        try:
+            Paste(Title=paste["Title"],Author=paste["Author"],
+             Content=paste["Content"], Date=paste["Date"]).save()
+        except:
+            "Error getting pastes"
+    return "Inserted"
