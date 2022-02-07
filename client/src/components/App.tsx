@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 /* ----- TYPES ----- */
 import { Paste } from '../@types/types';
+import NavBar from './NavBar/NavBar';
 
 function App() {
   /* ----- STATES ----- */
@@ -29,21 +30,24 @@ function App() {
 
   return (
     <div className='App'>
-      {pastes.length ? (
-        <ul>
-          {pastes.map(({ Title, Author, Content, Date }, i) => (
-            <li key={i}>
-              <h3>{Title}</h3>
-              <h4>
-                By {Author} | {Date}
-              </h4>
-              <div>{Content}</div>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <h3>NO PASTES YET, SORRY</h3>
-      )}
+      <NavBar />
+      <div style={{ marginLeft: '20%' }}>
+        {pastes.length ? (
+          <ul>
+            {pastes.map(({ Title, Author, Content, Date }, i) => (
+              <li key={i}>
+                <h3>{Title}</h3>
+                <h4>
+                  By {Author} | {Date}
+                </h4>
+                <div>{Content}</div>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <h3>NO PASTES YET, SORRY</h3>
+        )}
+      </div>
     </div>
   );
 }
