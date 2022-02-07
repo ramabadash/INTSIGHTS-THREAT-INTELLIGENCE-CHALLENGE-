@@ -1,4 +1,3 @@
-from logging import error
 import requests
 from bs4 import BeautifulSoup
 
