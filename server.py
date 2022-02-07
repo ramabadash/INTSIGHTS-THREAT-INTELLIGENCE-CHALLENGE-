@@ -1,8 +1,16 @@
-from cmath import log
 from fastapi import FastAPI
 from models.models import Paste, NewPate
 from mongoengine import connect
 from scraper.webScraper import scrape
+import json
+
+# cors
+from fastapi.middleware.cors import CORSMiddleware
+
+origins = [
+    "http://localhost:3000",
+]
+
 
 # Load .env file using:
 from dotenv import load_dotenv
@@ -15,6 +23,14 @@ MONGO_URI = os.getenv("MONGO_URI")
 # ---------- SETUP SERVER AND DB ---------- #
 app = FastAPI() # Create server
 connect("dark_web_scrape", host=MONGO_URI) # Connect to db
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Initial DB on server start
 def save_all_pastes_to_db():
