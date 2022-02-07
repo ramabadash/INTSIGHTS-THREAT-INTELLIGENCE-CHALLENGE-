@@ -49,7 +49,7 @@ def from_paste_to_object(paste):
         full_paste_url = paste.find_all('a', {"class": 'btn-success'})[0].attrs["href"]
         # Fixed obj {Title: ? , Author: ?, Date: ?, Content: ?}
         return {
-            "Title": paste.find_all("h4")[0].text.strip("\n").strip("\t"),
+            "Title": paste.find_all("h4")[0].text.strip(),
             "Author": details_line_list[2],
             "Content": get_paste_content(full_paste_url),
             "Date": " ".join(details_line_list[4:8]),
@@ -71,7 +71,7 @@ def get_paste_content(full_paste_url):
     content = ""
     for li in all_content:
         content += f"{li.text}. " # Add to one string
-    return content.strip("\n")
+    return content.strip()
 
 # ---------- GET NUMBER OF PAGES ---------- #
 def get_number_of_pages(html_code):
