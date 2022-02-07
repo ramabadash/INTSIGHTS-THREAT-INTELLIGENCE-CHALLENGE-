@@ -28,8 +28,7 @@ def save_all_pastes_to_db():
 
     for paste in run_over_items:
         try:
-            Paste(Title=paste["Title"],Author=paste["Author"],
-             Content=paste["Content"], Date=paste["Date"]).save()
+            Paste(**paste).save()
         except:
             "Error getting pastes"
     return "Inserted"
