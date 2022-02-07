@@ -1,20 +1,25 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+/* ----- STYLE ----- */
 import './NavBar.css';
 
 function NavBar() {
+  /* ----- REFS ----- */
+  const activeRef = useRef<React.LegacyRef<HTMLLIElement> | undefined>(undefined);
+
+  /* ----- FUNCTIONS ----- */
+  // Navigate
+  const navigate = useNavigate();
+  // Handle navbar click
+  const handleClick = (whereTo: string) => {
+    navigate(whereTo);
+  };
+
   return (
     <ul className='navbar'>
-      <li>
-        <a className='active' href='#home'>
-          Home
-        </a>
-      </li>
-      <li>
-        <a href='#pastes'>Pastes</a>
-      </li>
-      <li>
-        <a href='#analytics'>Analytics</a>
-      </li>
+      <li onClick={() => handleClick('/')}>Home</li>
+      <li onClick={() => handleClick('/pastes')}>Pastes</li>
+      <li onClick={() => handleClick('/analytics')}>Analytics</li>
     </ul>
   );
 }
