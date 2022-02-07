@@ -11,8 +11,23 @@ load_dotenv()
 import os
 MONGO_URI = os.getenv("MONGO_URI")
 
+# ---------- SETUP SERVER AND DB ---------- #
 app = FastAPI() # Create server
 connect("dark_web_scrape", host=MONGO_URI) # Connect to db
+
+# Initial DB on server start
+def save_all_pastes_to_db(): 
+    all_pastes = scrape()
+    for paste in all_pastes:
+        try:
+            Paste(Title=paste["Title"],Author=paste["Author"],
+             Content=paste["Content"], Date=paste["Date"]).save()
+        except:
+            "Error getting pastes"
+    return "Inserted"
+save_all_pastes_to_db()
+
+# ---------- ROUTERS ---------- #
 
 # Just to check
 @app.get("/")
@@ -24,15 +39,3 @@ def read_root():
 def get_all_data():
     data = Paste.objects.all()
     return data
-
-# Post all to DB
-@app.post("/post_all")
-def post_all(): 
-    all_pastes = scrape()
-    for paste in all_pastes:
-        try:
-            Paste(Title=paste["Title"],Author=paste["Author"],
-             Content=paste["Content"], Date=paste["Date"]).save()
-        except:
-            "Error getting pastes"
-    return "Inserted"
