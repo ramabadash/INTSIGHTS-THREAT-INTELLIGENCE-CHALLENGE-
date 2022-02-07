@@ -58,7 +58,8 @@ def read_root():
     return {"Hello": "World"}
 
 # Get all pastes
-@app.get("/get_all")
-def get_all_data():
-    data = Paste.objects.all()
+@app.get("/get_all/{skip}")
+def get_all_data(skip):
+    data = json.loads(Paste.objects.skip(int(skip)).to_json())
+
     return data
