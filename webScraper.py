@@ -33,7 +33,7 @@ def get_pastes_list_from_html(html_code):
     for paste in pastes:
         parsed_obj = from_paste_to_object(paste)
         if parsed_obj:
-            print(f"\n\n parsed_obj: \n\n {parsed_obj}")
+            # print(f"\n\n parsed_obj: \n\n {parsed_obj}")
             pastes_list.append(parsed_obj)
     print(f"pastes_list :{pastes_list }\n")
     return pastes_list
@@ -84,7 +84,7 @@ def get_number_of_pages(html_code):
 
 # ---------- MAIN ---------- #
 
-def main():
+def scrape():
     """
     :return: List with all pastes from all pages
     """
@@ -100,11 +100,11 @@ def main():
         # Get html for page
         html_page = get_landing_page(f"http://strongerw2ise74v3duebgsvug4mehyhlpa7f6kfwnas7zofs3kov7yd.onion/all?page={page}")
         # Get pastes objects list and append to general list
-        all_data.append(get_pastes_list_from_html(html_page))
+        all_data.extend(get_pastes_list_from_html(html_page))
         page += 1
-    
+    print(all_data)
     return all_data
 
 # ---------- EXEC ---------- #
    
-main()
+scrape()
