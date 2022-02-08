@@ -1,22 +1,26 @@
 import React from 'react';
 /* ----- TYPES ----- */
 import { Paste } from '../../@types/types';
+/* ----- STYLE ----- */
+import './Pastes.css';
 
 function Pastes({ pastes }: { pastes: Paste[] }) {
   return (
     <div style={{ marginLeft: '20%' }}>
       {pastes.length ? (
-        <ul>
+        <div className='pastes-list'>
           {pastes.map(({ Title, Author, Content, Date }, i) => (
-            <li key={i}>
-              <h3>{Title}</h3>
-              <h4>
-                By {Author} | {Date}
-              </h4>
-              <div>{Content}</div>
-            </li>
+            <details key={i} className='paste'>
+              <summary>
+                <h3 className='pastes-title'>{Title}</h3>
+                <h4 className='pastes-details'>
+                  By {Author} | {Date}
+                </h4>
+              </summary>
+              <div className='pastes-content'>{Content}</div>
+            </details>
           ))}
-        </ul>
+        </div>
       ) : (
         <h3>NO PASTES YET, SORRY</h3>
       )}

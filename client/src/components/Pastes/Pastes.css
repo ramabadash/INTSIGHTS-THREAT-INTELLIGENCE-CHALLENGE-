@@ -1,0 +1,36 @@
+.pastes-list {
+  height: 90vh;
+  overflow: auto;
+  /* list-style: none; */
+  margin: 1em;
+  padding: 0;
+}
+
+.paste {
+  /* height: 20%; */
+  width: 90%;
+  margin: auto;
+  margin-top: 1em;
+  overflow: auto;
+  padding: 0.5em;
+  background-color: rgba(128, 128, 128, 0.295);
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+summary {
+  text-align: center;
+}
+
+.pastes-title {
+  font-size: 14px;
+}
+
+.pastes-details {
+  font-size: 12px;
+}
+
+.pastes-content {
+  font-size: 10px;
+  padding: 1em;
+}
