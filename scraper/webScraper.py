@@ -13,11 +13,12 @@ website_config = {
     "author_selector": ".col-sm-6",
     "date_selector": ".col-sm-6",
     "full_content_selector": ".btn-success",
-    "content_selector": "li",
+    "content_selector": ".text li",
     "pagination_selector": ".pagination>li"
 }
 
-my_last_paste = {'Title': 'BITCOIN GENERAT0R v.2022', 'Author': 'Anonymous', 'Content': 'Archives. \n Trending. \n Docs. \n Login. BITCOIN GENERATOR v.2022. \xa0. Earn Free Bitcoins in just a few moments without any investment! Use our Bitcoin Generator and you will receive free unlimited Bitcoin instantly!. \xa0. http://2222asi7crk3yh5dbanvul4uldpktisa637rznipn3g5qodyzqz5urqd.onion/.', 'Date': '08 Feb 2022, 17:00:11'}
+my_last_paste = {'Title': 'Best Onion Child Porn ❤️', 'Author': 'Anonymous', 'Content': 'http://cpsexxklpu7kgwu4h4noa6ewlwinszoo6gw463elubo4y2lc3u6nfnyd.onion/.', 'Date': '08 Feb 2022, 20:02:29'}
+
 # Stop updating condition
 is_updated = False
 
@@ -91,7 +92,7 @@ def get_paste_content(full_paste_url, content_selector):
     response = requests.get(full_paste_url, proxies=proxies)
     full_paste_html = BeautifulSoup(response.text, 'html.parser')
     # Get content list
-    all_content = full_paste_html.find_all(content_selector)
+    all_content = full_paste_html.select(content_selector)
     content = ""
     for li in all_content:
         content += f"{li.text}. " # Add to one string
