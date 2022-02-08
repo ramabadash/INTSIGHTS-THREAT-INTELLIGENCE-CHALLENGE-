@@ -1,4 +1,5 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, BackgroundTasks
+from time import sleep
 from models.models import Paste, NewPate
 from mongoengine import connect
 from scraper.webScraper import scrape
@@ -32,10 +33,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 # Initial DB on server start
 def save_all_pastes_to_db():
-    data_length = Paste.objects.count()
-    print(data_length)
+    print("Scraping now")
     all_pastes = scrape() #TODO - Not to scrape over everything
 
     for paste in all_pastes:
@@ -43,8 +44,9 @@ def save_all_pastes_to_db():
             Paste(**paste).save()
         except:
             "Error getting pastes"
-    return "Inserted"
-save_all_pastes_to_db()
+    print("Inserted")
+    return
+
 
 # ---------- ROUTERS ---------- #
 
@@ -56,6 +58,7 @@ def read_root():
 # Get all pastes
 @app.get("/get_all/{skip}")
 def get_all_data(skip):
-    data = json.loads(Paste.objects.skip(int(skip)).to_json())
-
+    data = json.loads(Paste.objects.skip(int(skip)).order_by('-Date').to_json())
     return data
+
+save_all_pastes_to_db()

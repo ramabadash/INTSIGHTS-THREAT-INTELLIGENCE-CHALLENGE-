@@ -17,7 +17,7 @@ website_config = {
     "pagination_selector": ".pagination>li"
 }
 
-my_last_paste = {'Title': 'Europa Ferien', 'Author': 'Anonymous', 'Content': 'Archives. \n Trending. \n Docs. \n Login. hello we are a small young family with two daughters we are all bisexual and like to fuck with animals, especially my wife likes to be fucked by dogs, ponies or pigs of course also other animals and their owners. we are very exhibitionistic and let people watch and film, we like to be naked and also like other sexual activities without taboo.. during the holidays we are going on a trip through europe to get to know other like-minded people and give ourselves completely to the desire.. we drive the motorhome on the european mainland as well as ireland and great britain. our first trip is to spain from the beginning to the middle of april. \xa0. If you are interested in us and have something suitable to offer, please write to us so that we can select how we plan our route . \xa0. dielindners@protonmail.com.', 'Date': '08 Feb 2022, 11:12:15'}
+my_last_paste = {'Title': 'BITCOIN GENERAT0R v.2022', 'Author': 'Anonymous', 'Content': 'Archives. \n Trending. \n Docs. \n Login. BITCOIN GENERATOR v.2022. \xa0. Earn Free Bitcoins in just a few moments without any investment! Use our Bitcoin Generator and you will receive free unlimited Bitcoin instantly!. \xa0. http://2222asi7crk3yh5dbanvul4uldpktisa637rznipn3g5qodyzqz5urqd.onion/.', 'Date': '08 Feb 2022, 17:00:11'}
 # Stop updating condition
 is_updated = False
 
@@ -132,7 +132,7 @@ def scrape():
     print(all_data)
     is_updated = False # Change back condition
     if len(all_data) > 0:
-        my_last_paste = all_data[-1]  # Update flag
+        my_last_paste = all_data[0]  # Update flag
     return all_data
 
 # ---------- EXEC ---------- #
