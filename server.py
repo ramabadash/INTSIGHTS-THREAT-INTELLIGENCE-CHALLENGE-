@@ -37,12 +37,8 @@ def save_all_pastes_to_db():
     data_length = Paste.objects.count()
     print(data_length)
     all_pastes = scrape() #TODO - Not to scrape over everything
-    if data_length == 0:
-        run_over_items = all_pastes
-    else:
-        run_over_items = all_pastes[data_length + 1:]
 
-    for paste in run_over_items:
+    for paste in all_pastes:
         try:
             Paste(**paste).save()
         except:

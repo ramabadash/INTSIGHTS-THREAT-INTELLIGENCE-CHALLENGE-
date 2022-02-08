@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+from scraper.helpers import is_paste_equal
 
 proxies = {
     "socks5h": "socks5h://127.0.0.1:9050",
@@ -15,6 +16,10 @@ website_config = {
     "content_selector": "li",
     "pagination_selector": ".pagination>li"
 }
+
+my_last_paste = {'Title': 'Europa Ferien', 'Author': 'Anonymous', 'Content': 'Archives. \n Trending. \n Docs. \n Login. hello we are a small young family with two daughters we are all bisexual and like to fuck with animals, especially my wife likes to be fucked by dogs, ponies or pigs of course also other animals and their owners. we are very exhibitionistic and let people watch and film, we like to be naked and also like other sexual activities without taboo.. during the holidays we are going on a trip through europe to get to know other like-minded people and give ourselves completely to the desire.. we drive the motorhome on the european mainland as well as ireland and great britain. our first trip is to spain from the beginning to the middle of april. \xa0. If you are interested in us and have something suitable to offer, please write to us so that we can select how we plan our route . \xa0. dielindners@protonmail.com.', 'Date': '08 Feb 2022, 11:12:15'}
+# Stop updating condition
+is_updated = False
 
 # ---------- GET LANDING PAGE FOR WEBSITE WITH URL ---------- #
 def get_landing_page(url):
@@ -36,14 +41,20 @@ def get_pastes_list_from_html(html_code, paste_selector):
     :paste_selector: CSS selector to find paste
     :return: pastes into objects list
     """
+    global is_updated 
     pastes = html_code.select(paste_selector) # Get all pastes containers
     pastes_list = []
     # Run throw all pastes containters and get parsed obj from each. Insert into list
     for paste in pastes:
         parsed_obj = from_paste_to_object(paste, website_config["title_selector"], website_config["author_selector"], website_config["full_content_selector"])
         if parsed_obj:
-            # print(f"\n\n parsed_obj: \n\n {parsed_obj}")
-            pastes_list.append(parsed_obj)
+            # print(f"parsed_obj: {parsed_obj}")
+            if is_paste_equal(parsed_obj, my_last_paste): #Added all new pastes
+                print("Equal")
+                is_updated = True
+                return pastes_list
+            else:
+                pastes_list.append(parsed_obj)
     print(f"pastes_list :{pastes_list }\n")
     return pastes_list
         
@@ -101,6 +112,8 @@ def scrape():
     """
     :return: List with all pastes from all pages
     """
+    global is_updated
+    global my_last_paste 
     html_page = get_landing_page("http://strongerw2ise74v3duebgsvug4mehyhlpa7f6kfwnas7zofs3kov7yd.onion/all")
     # Get pages number and empty list
     number_of_pages = int(get_number_of_pages(html_page, website_config["pagination_selector"]))
@@ -108,14 +121,18 @@ def scrape():
     page = 1
 
     # Run throw all pages from 1 to last
-    while page < number_of_pages + 1:
+    while page < number_of_pages + 1 and is_updated != True:
         print(f"page: {page}")
         # Get html for page
         html_page = get_landing_page(f"http://strongerw2ise74v3duebgsvug4mehyhlpa7f6kfwnas7zofs3kov7yd.onion/all?page={page}")
         # Get pastes objects list and append to general list
         all_data.extend(get_pastes_list_from_html(html_page, website_config["paste_selector"]))
         page += 1
+
     print(all_data)
+    is_updated = False # Change back condition
+    if len(all_data) > 0:
+        my_last_paste = all_data[-1]  # Update flag
     return all_data
 
 # ---------- EXEC ---------- #
