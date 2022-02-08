@@ -4,6 +4,7 @@ from models.models import Paste, NewPate
 from mongoengine import connect
 from scraper.webScraper import scrape
 import json
+from analysis import get_authors_analysis
 
 # cors
 from fastapi.middleware.cors import CORSMiddleware
