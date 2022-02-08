@@ -59,6 +59,6 @@ def read_root():
 @app.get("/get_all/{skip}")
 def get_all_data(skip):
     data = json.loads(Paste.objects.skip(int(skip)).order_by('-Date').to_json())
+    save_all_pastes_to_db() #scrape again
     return data
 
-save_all_pastes_to_db()
