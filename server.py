@@ -5,6 +5,8 @@ from fastapi import FastAPI # Server
 from scraper.webScraper import scrape 
 # DB
 from database.db import DB
+# Analysis
+from analysis import Analyzer
 
 # ---------- SETUP SERVER ---------- #
 app = FastAPI() 
@@ -52,3 +54,18 @@ def get_all_data(skip):
     save_all_pastes_to_db() #scrape again
     return data
 
+### Analytics
+#common words
+@app.get("/analysis/common_Words")
+def get_dark_common_words():
+    return Analyzer.get_common_words()
+
+#Total pastes
+@app.get("/analysis/total_amount")
+def get_total_pastes_amount():
+    return Analyzer.get_number_of_pastes()
+
+#Pastes per author
+@app.get("/analysis/per_author")
+def getget_authors_analysis():
+    return Analyzer.get_authors_analysis()
