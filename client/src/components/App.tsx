@@ -4,8 +4,10 @@ import axios from 'axios';
 /* ----- COMPONENTS ----- */
 import NavBar from './NavBar/NavBar';
 import Pastes from './Pastes/Pastes';
+import Analytics from './Analytics/Analytics';
 /* ----- TYPES ----- */
 import { Paste } from '../@types/types';
+import { BASE_URL } from '../index';
 
 function App() {
   /* ----- STATES ----- */
@@ -14,12 +16,8 @@ function App() {
   /* ----- FUNCTIONS ----- */
   const getPastes = async () => {
     try {
-      const { data } = await axios.get(`http://localhost:8000/get_all/${pastes.length + 1}`);
+      const { data } = await axios.get(`${BASE_URL}/get_all/${pastes.length + 1}`);
       setPastes(prevPastes => [...prevPastes, ...data]);
-      console.log(pastes.length + 1);
-
-      console.log('Data', data);
-      console.log('pastes', pastes);
     } catch (error) {
       console.log(error);
     }
@@ -36,6 +34,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path='/pastes' element={<Pastes pastes={pastes} />} />
+        <Route path='/analytics' element={<Analytics numOfPastes={pastes.length} />} />
       </Routes>
     </div>
   );

@@ -8,6 +8,8 @@ import App from './components/App';
 /* ----- STYLE ----- */
 import './index.css';
 
+export const BASE_URL = `http://localhost:8000`;
+
 ReactDOM.render(
   <React.StrictMode>
     {/* <Provider store={store}> */}
