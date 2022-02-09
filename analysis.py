@@ -1,58 +1,60 @@
-from models.models import Paste
-from mongoengine import connect
+# ----- DB -----#
+from database.db import DB
+DB.connection()
 
-# Load .env file using:
-from dotenv import load_dotenv
-load_dotenv()
-import os
-MONGO_URI = os.getenv("MONGO_URI")
-connect("dark_web_scrape", host=MONGO_URI) # Connect to db
+# ----- Helper func ----- #
+def search_title_by_regex(regex): 
+    return DB.Collection.count_documents( { "Title" : { '$regex' : regex, '$options' : 'i' } }) # Case-insensitive
 
 
-def get_number_of_pastes():
-    """
-    :return: total number of pastes in db
-    """
-    return Paste.objects.count()
+# ----- Analyzer class ----- #
+class Analyzer:
+    Collection = DB.Collection
 
-def get_authors_analysis():
-    """
-    :return: list with authors as keys and number of posts as value
-    """
-    return list(Paste.objects().aggregate(
-        {"$group": { "_id": "$Author",
-               "Total": { "$sum": 1 } } }
-    ))
+    # Get number of pastes
+    def get_number_of_pastes():
+        """
+        :return: total number of pastes in db
+        """
+        return Analyzer.Collection.count_documents({})
 
-def get_dates_analysis():
-    """
-    :return: list with authors as keys and number of posts as value
-    """
-    return list(Paste.objects().aggregate(
-        {"$group": { "_id" : {"$dateToString": { "format": "%Y %m %d, %H:%M:%S", "date": "$split : [$Date , ',']"}},
-               "Total": { "$sum": 1 } } }
-    ))
+    # Get pastes number pre author
+    def get_authors_analysis():
+        """
+        :return: list with authors as keys and number of posts as value
+        """
+        return list(Analyzer.Collection.aggregate([
+            {"$group": { "_id": "$Author",
+                "Total": { "$sum": 1 } } }
+        ]))
 
-def get_common_words():
-    """
-    :return: list with authors as keys and number of posts as value
-    """
-    analytics_obj = {
-        "total_pastes_bitcoin": Paste.objects(Title__icontains='bitcoin').count(),
-        "total_pastes_porn": Paste.objects(Title__icontains='porn').count(),
-        "total_pastes_gun": Paste.objects(Title__icontains='gun').count(),
-        "total_pastes_creditcard": Paste.objects(Title__icontains='creditcard').count(),
-        "total_pastes_onion": Paste.objects(Title__icontains='onion').count(),
-        "total_pastes_drug": Paste.objects(Title__icontains='drug').count(),
-        "total_pastes_hack": Paste.objects(Title__icontains='hack').count(),
-        "total_pastes_leak": Paste.objects(Title__icontains='leak').count(),
-        "total_pastes_child": Paste.objects(Title__icontains='child').count(),
-        "total_pastes_dark": Paste.objects(Title__icontains='dark').count(),
-    }
-    return analytics_obj
+    # Get common dark words - times per word
+    def get_common_words():
+        """
+        :return: list with authors as keys and number of posts as value
+        """
+        analytics_obj = { 
+            "total_pastes_bitcoin": search_title_by_regex("bitcoin"),
+            "total_pastes_porn": search_title_by_regex("porn"),
+            "total_pastes_gun": search_title_by_regex("gun"),
+            "total_pastes_creditcard": search_title_by_regex("creditcard"),
+            "total_pastes_onion": search_title_by_regex("onion"),
+            "total_pastes_drug": search_title_by_regex("drug"),
+            "total_pastes_hack": search_title_by_regex("hack"),
+            "total_pastes_leak": search_title_by_regex("leak"),
+            "total_pastes_child": search_title_by_regex("child"),
+            "total_pastes_dark": search_title_by_regex("dark"),
+        }
+        return analytics_obj
 
+    # def get_dates_analysis():
+    #     """
+    #     :return: list with authors as keys and number of posts as value
+    #     """
+    #     return list(Analyzer.Collection.aggregate([
+    #         {"$group": { "_id" : {"$dateToString": { "format": "%Y %m %d, %H:%M:%S", "date": "$split : [$Date , ',']"}},
+    #             "Total": { "$sum": 1 } } }
+    #     ]))
 
-print(get_authors_analysis())
-print(get_common_words())
 
 
