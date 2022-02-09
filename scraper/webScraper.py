@@ -17,7 +17,7 @@ website_config = {
     "pagination_selector": ".pagination>li"
 }
 
-my_last_paste = {'Title': 'Best Onion Child Porn ❤️', 'Author': 'Anonymous', 'Content': 'http://cpsexxklpu7kgwu4h4noa6ewlwinszoo6gw463elubo4y2lc3u6nfnyd.onion/.', 'Date': '08 Feb 2022, 20:02:29'}
+my_last_paste = {'Title': 'BITCOIN GENERAT0R v.2022', 'Author': 'Anonymous', 'Content': 'BITCOIN GENERATOR v.2022. \xa0. Earn Free Bitcoins in just a few moments without any investment! Use our Bitcoin Generator and you will receive free unlimited Bitcoin instantly!. \xa0. http://2222asi7crk3yh5dbanvul4uldpktisa637rznipn3g5qodyzqz5urqd.onion/.', 'Date': '09 Feb 2022, 20:00:09'}
 
 # Stop updating condition
 is_updated = False
