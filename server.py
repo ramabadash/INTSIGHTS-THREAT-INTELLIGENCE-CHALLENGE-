@@ -1,30 +1,20 @@
-from fastapi import FastAPI, BackgroundTasks
-from time import sleep
-from models.models import Paste, NewPate
-from mongoengine import connect
-from scraper.webScraper import scrape
-import json
-from analysis import get_authors_analysis
+# ---------- PACKAGES ---------- #
+# General
+from fastapi import FastAPI # Server
+#Services
+from scraper.webScraper import scrape 
+# DB
+from database.db import DB
 
-# cors
+# ---------- SETUP SERVER ---------- #
+app = FastAPI() 
+DB.connection()
+
+# ---------- CORS ---------- #
+
 from fastapi.middleware.cors import CORSMiddleware
 
-origins = [
-    "http://localhost:3000",
-]
-
-
-# Load .env file using:
-from dotenv import load_dotenv
-load_dotenv()
-
-# Use the variable with:
-import os
-MONGO_URI = os.getenv("MONGO_URI")
-
-# ---------- SETUP SERVER AND DB ---------- #
-app = FastAPI() # Create server
-connect("dark_web_scrape", host=MONGO_URI) # Connect to db
+origins = ["http://localhost:3000"]
 
 app.add_middleware(
     CORSMiddleware,
@@ -42,7 +32,7 @@ def save_all_pastes_to_db():
 
     for paste in all_pastes:
         try:
-            Paste(**paste).save()
+            DB.insert_One(paste)
         except:
             "Error getting pastes"
     print("Inserted")
@@ -50,7 +40,6 @@ def save_all_pastes_to_db():
 
 
 # ---------- ROUTERS ---------- #
-
 # Just to check
 @app.get("/")
 def read_root():
@@ -59,7 +48,7 @@ def read_root():
 # Get all pastes
 @app.get("/get_all/{skip}")
 def get_all_data(skip):
-    data = json.loads(Paste.objects.skip(int(skip)).order_by('-Date').to_json())
+    data = DB.find_all(int(skip))
     save_all_pastes_to_db() #scrape again
     return data
 
