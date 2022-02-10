@@ -22,4 +22,7 @@ export interface WordsAnalytics {
   total_pastes_leak: number;
   total_pastes_child: number;
   total_pastes_dark: number;
+  total_pastes_sex: number;
+  total_pastes_payment: number;
+  total_pastes_hot: number;
 }

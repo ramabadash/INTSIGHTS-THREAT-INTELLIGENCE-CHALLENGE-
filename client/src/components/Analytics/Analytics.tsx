@@ -8,7 +8,8 @@ function Analytics({ numOfPastes }: { numOfPastes: number }) {
   /* ----- STATE ----- */
   const [totalPastes, setTotalPastes] = useState(numOfPastes);
   const [authorAnalytics, setAuthorAnalytics] = useState<AuthorAnalytics[]>([]);
-  const [commonWords, setCommonWords] = useState<WordsAnalytics | {}>({});
+  const [commonWordsTitle, setCommonWordsTitle] = useState<WordsAnalytics | {}>({});
+  const [commonWordsContent, setCommonWordsContent] = useState<WordsAnalytics | {}>({});
 
   /* ----- EFFECT ----- */
 
@@ -21,10 +22,12 @@ function Analytics({ numOfPastes }: { numOfPastes: number }) {
   const updateStats = async () => {
     try {
       // TODO -Convert to promise.all ?
-      const commonWordsResult = await axios.get(`${BASE_URL}/analysis/common_Words`);
+      const commonWordsTitleResult = await axios.get(`${BASE_URL}/analysis/common_words_title`);
+      const commonWordsContentResult = await axios.get(`${BASE_URL}/analysis/common_words_content`);
       const authorResult = await axios.get(`${BASE_URL}/analysis/per_author`);
 
-      setCommonWords(commonWordsResult.data);
+      setCommonWordsTitle(commonWordsTitleResult.data);
+      setCommonWordsContent(commonWordsContentResult.data);
       setAuthorAnalytics(authorResult.data);
       setTotalPastes(numOfPastes);
     } catch (error) {
@@ -32,9 +35,9 @@ function Analytics({ numOfPastes }: { numOfPastes: number }) {
     }
   };
   // Split common words object to elements array
-  const renderCommonWords = () => {
-    const countArr = Object.values(commonWords);
-    const wordsArr = Object.keys(commonWords);
+  const renderCommonWords = (commonWordsObj: WordsAnalytics | {}) => {
+    const countArr = Object.values(commonWordsObj);
+    const wordsArr = Object.keys(commonWordsObj);
 
     const resultElements = [];
 
@@ -64,7 +67,10 @@ function Analytics({ numOfPastes }: { numOfPastes: number }) {
       </div>
       <div>
         <h3>Common "dark words"</h3>
-        {renderCommonWords()}
+        <h4>By title:</h4>
+        {renderCommonWords(commonWordsTitle)}
+        <h4>By content:</h4>
+        {renderCommonWords(commonWordsContent)}
       </div>
     </div>
   );
