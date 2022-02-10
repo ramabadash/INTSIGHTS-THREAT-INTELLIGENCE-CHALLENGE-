@@ -17,7 +17,7 @@ website_config = {
     "pagination_selector": ".pagination>li"
 }
 
-my_last_paste = {'Title': 'BITCOIN GENERAT0R v.2022', 'Author': 'Anonymous', 'Content': 'BITCOIN GENERATOR v.2022. \xa0. Earn Free Bitcoins in just a few moments without any investment! Use our Bitcoin Generator and you will receive free unlimited Bitcoin instantly!. \xa0. http://2222asi7crk3yh5dbanvul4uldpktisa637rznipn3g5qodyzqz5urqd.onion/.', 'Date': '09 Feb 2022, 20:00:09'}
+my_last_paste = {'Title': 'Dark Leak Market', 'Author': 'Anonymous', 'Content': 'DARK LEAK MARKET. \xa0. Leaked databases & documents.. \xa0. http://ydnvjy3hfvmhkf7ayjhfttfamanpyholz2he4sejeokk3ot5ms4fa5ad.onion/.', 'Date': '10 Feb 2022, 15:00:10'}
 
 # Stop updating condition
 is_updated = False
@@ -129,7 +129,7 @@ def scrape():
         # Get pastes objects list and append to general list
         all_data.extend(get_pastes_list_from_html(html_page, website_config["paste_selector"]))
         page += 1
-
+        
     print(all_data)
     is_updated = False # Change back condition
     if len(all_data) > 0:

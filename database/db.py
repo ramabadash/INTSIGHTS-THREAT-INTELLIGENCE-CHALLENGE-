@@ -29,7 +29,7 @@ class DB:
 
     # Insert One
     def insert_One(paste):
-        return DB.Collection.update_one(paste, {"upset": True})
+        return DB.Collection.update_one({**paste}, {"$set": {**paste}}, upsert=True)
 
     # Find one
     def find_one_by_date(date):
