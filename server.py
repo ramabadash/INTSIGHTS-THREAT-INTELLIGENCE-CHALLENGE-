@@ -9,7 +9,7 @@ from database.db import DB
 from analysis import Analyzer
 
 # ---------- SETUP SERVER ---------- #
-app = FastAPI() 
+app = FastAPI() #uvicorn server:app --reload
 DB.connection()
 
 # ---------- CORS ---------- #
@@ -54,11 +54,17 @@ def get_all_data(skip):
     save_all_pastes_to_db() #scrape again
     return data
 
-### Analytics
-#common words
-@app.get("/analysis/common_Words")
+##### Analytics
+###common words
+# Title
+@app.get("/analysis/common_words_title")
 def get_dark_common_words():
-    return Analyzer.get_common_words()
+    return Analyzer.get_common_words_title()
+
+# Content
+@app.get("/analysis/common_words_content")
+def get_dark_common_words():
+    return Analyzer.get_common_words_content()
 
 #Total pastes
 @app.get("/analysis/total_amount")
