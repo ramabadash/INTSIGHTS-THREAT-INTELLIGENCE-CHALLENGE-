@@ -21,7 +21,7 @@ function ChartDiagram({ chartData, labels }: Props) {
     'rgba(200, 120, 10, 0.2)',
     'rgba(0, 120, 59, 0.2)',
     'rgba(184, 50, 29, 0.2)',
-    'rgba(100, 100, 20, 0.2)',
+    'rgba(24, 25, 43, 0.2)',
     'rgba(255, 20, 130, 0.2)',
     'rgba(200, 130, 20, 0.2)',
     'rgba(150, 20, 1, 0.2)',
@@ -31,7 +31,7 @@ function ChartDiagram({ chartData, labels }: Props) {
     labels: labels,
     datasets: [
       {
-        label: '# of Votes',
+        // label: '# of Votes',
         data: chartData,
         backgroundColor: colorsPalette.splice(0, chartData.length),
         borderColor: colorsPalette.splice(0, chartData.length),
@@ -40,7 +40,25 @@ function ChartDiagram({ chartData, labels }: Props) {
     ],
   };
 
-  return <Pie data={data} style={{ width: '50%', height: '50%' }} />;
+  const pieOptions = {
+    plugins: {
+      responsive: true,
+      maintainAspectRatio: true,
+      legend: {
+        display: true,
+        labels: {
+          color: 'black',
+          font: {
+            size: 10,
+            // width: 10,
+            // height: 10,
+          },
+        },
+      },
+    },
+  };
+
+  return <Pie data={data} options={pieOptions} />;
 }
 
 export default ChartDiagram;

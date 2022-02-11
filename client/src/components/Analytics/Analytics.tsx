@@ -5,6 +5,8 @@ import ChartDiagram from './ChartDiagram';
 /* ----- TYPES ----- */
 import { AuthorAnalytics, WordsAnalytics } from '../../@types/types';
 import { BASE_URL } from '../../index';
+/* ----- STYLE ----- */
+import './Analytics.css';
 
 function Analytics({ numOfPastes }: { numOfPastes: number }) {
   /* ----- STATE ----- */
@@ -80,29 +82,28 @@ function Analytics({ numOfPastes }: { numOfPastes: number }) {
         </div>
         <div className='analytics-div'>
           <h3>Authors analytics</h3>
-          {authorAnalytics.map(({ _id, Total }) => (
-            <h4 key={_id}>{`${_id} : ${Total} pastes`}</h4>
-          ))}
           <ChartDiagram
             labels={getAuthorsKeys(authorAnalytics)}
             chartData={getAuthorsValues(authorAnalytics)}
           />
         </div>
-        <div className='analytics-div common-words-div'>
+        <div className='analytics-div common-words-outside-div'>
           <h3>Common "dark words"</h3>
-          <div>
-            <h4>By title:</h4>
-            <ChartDiagram
-              labels={getCleanWordsArray(commonWordsTitle)}
-              chartData={Object.values(commonWordsTitle)}
-            />
-          </div>
-          <div>
-            <h4>By content:</h4>
-            <ChartDiagram
-              labels={getCleanWordsArray(commonWordsContent)}
-              chartData={Object.values(commonWordsContent)}
-            />
+          <div className='common-words-inside-div'>
+            <div className='common-words'>
+              <h4>By title:</h4>
+              <ChartDiagram
+                labels={getCleanWordsArray(commonWordsTitle)}
+                chartData={Object.values(commonWordsTitle)}
+              />
+            </div>
+            <div className='common-words'>
+              <h4>By content:</h4>
+              <ChartDiagram
+                labels={getCleanWordsArray(commonWordsContent)}
+                chartData={Object.values(commonWordsContent)}
+              />
+            </div>
           </div>
         </div>
       </div>
