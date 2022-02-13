@@ -17,7 +17,7 @@ website_config = {
     "pagination_selector": ".pagination>li"
 }
 
-my_last_paste = {'Title': 'GUNS - INNOXIUS TABERNAM', 'Author': 'Anonymous', 'Content': 'Innoxius Tabernam sells the most popular firearm models with a great stock, for private use and for customers of all kinds. No matter what you prefer shooting, be it handguns, rifles, smgs or just purchasing ammunition, Innoxious Tabernam has a gun to suit your needs and fill your requests. Innoxius Tabernam offers known and reliable firearm brands such as Springfield, Ruger, CZ, selection of AK surplus and many others. Browse the selection of firearms in stock and have it delivered to you in the most secure and fastest way possible. . http://innoxnxnihwnd52wlhojo6nne4goad7u7a2qixs7g3hrxkmgkyvviuad.onion/.', 'Date': '13 Feb 2022, 10:29:20'}
+my_last_paste = {'Title': '`SPYWARE FOR SALE`', 'Author': 'Anonymous', 'Content': '. Contact Mr. Snow Fall for spyware at (SnowFall28kwsWs@protonmail.com) . \xa0. Remotely view/access/listen through computers. (Keyloggers) (NJ Rat) (Dark Comet) (Babylon RAT) (Nano Core). \xa0. Typical Features of the Trojans include.. * Remote Desktop \xa0 \xa0 \xa0 \xa0* Remote Webcam \xa0 \xa0 \xa0 \xa0 * Built in Keylogger. * Password Recovery \xa0 \xa0 * Remote File Manager \xa0 * Download and Execute. * Remote Terminal \xa0 \xa0 \xa0 * Process Manager \xa0 \xa0 \xa0 * Registry Modification. * Clipboard Access \xa0 \xa0 \xa0. \xa0. Spyware - http://rk66bssr47uqkf2cmtxebmbcdbvd77rs3f665orf4p3jzjfzkqre3tid.onion?page=spyware. \xa0. \xa0. *Posted by Mr. Snow Falls Automated Ad Services. http://rk66bssr47uqkf2cmtxebmbcdbvd77rs3f665orf4p3jzjfzkqre3tid.onion?page=advertisement.', 'Date': '13 Feb 2022, 11:16:37'}
 # Stop updating condition
 is_updated = False
 
