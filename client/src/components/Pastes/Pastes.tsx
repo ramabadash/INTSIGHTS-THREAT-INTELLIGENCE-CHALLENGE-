@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 /* ----- TYPES ----- */
 import { Paste } from '../../@types/types';
+/* ----- COMPONENTS ----- */
+import SearchBar from '../Searchbar/SearchBar';
 /* ----- STYLE ----- */
 import './Pastes.css';
 
 function Pastes({ pastes }: { pastes: Paste[] }) {
+  /* ----- STATE ----- */
+  const [filteredPastes, setFilteredPastes] = useState<Paste[]>(pastes);
+
   return (
     <div style={{ marginLeft: '20%' }}>
-      {pastes.length ? (
+      <SearchBar pastes={pastes} setFilteredPastes={setFilteredPastes} />
+      {filteredPastes.length ? (
         <div className='pastes-list'>
-          {pastes.map(({ Title, Author, Content, Date }, i) => (
+          {filteredPastes.map(({ Title, Author, Content, Date }, i) => (
             <details key={i} className='paste'>
               <summary>
                 <h3 className='pastes-title'>{Title}</h3>
