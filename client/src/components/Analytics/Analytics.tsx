@@ -38,6 +38,7 @@ function Analytics({ numOfPastes }: { numOfPastes: number }) {
       console.log(error);
     }
   };
+
   // Split common words object to elements array
   const renderCommonWords = (commonWordsObj: WordsAnalytics | {}) => {
     const countArr = Object.values(commonWordsObj);

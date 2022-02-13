@@ -17,7 +17,7 @@ website_config = {
     "pagination_selector": ".pagination>li"
 }
 
-my_last_paste = {'Title': 'Anonymous image host', 'Author': 'Anonymous', 'Content': 'Host XXX. http://hostxxxlyamhy2wwdutble6erhuintmuwi3wsnjv7ywgj63tpocoabqd.onion/.', 'Date': '11 Feb 2022, 15:26:00'}
+my_last_paste = {'Title': 'GUNS - INNOXIUS TABERNAM', 'Author': 'Anonymous', 'Content': 'Innoxius Tabernam sells the most popular firearm models with a great stock, for private use and for customers of all kinds. No matter what you prefer shooting, be it handguns, rifles, smgs or just purchasing ammunition, Innoxious Tabernam has a gun to suit your needs and fill your requests. Innoxius Tabernam offers known and reliable firearm brands such as Springfield, Ruger, CZ, selection of AK surplus and many others. Browse the selection of firearms in stock and have it delivered to you in the most secure and fastest way possible. . http://innoxnxnihwnd52wlhojo6nne4goad7u7a2qixs7g3hrxkmgkyvviuad.onion/.', 'Date': '13 Feb 2022, 10:29:20'}
 # Stop updating condition
 is_updated = False
 
