@@ -23,6 +23,14 @@ async def event_generator(request):
             print("Scraping now")
             all_pastes = scrape() 
             if len(all_pastes) > 0:
+                # Save to DB
+                for paste in all_pastes:
+                    try:
+                        DB.insert_One(paste)
+                    except:
+                        "Error getting pastes"
+                print("Inserted")
+                # Send to client
                 data = {
                     "common_words_title": Analyzer.get_common_words_title(),
                     "common_words_content":Analyzer.get_common_words_content(),
@@ -35,13 +43,6 @@ async def event_generator(request):
                     "event": "update",
                     "data": f"{json.dumps(data)} \n\n"
                 }
-                # Save to DB
-                for paste in all_pastes:
-                    try:
-                        DB.insert_One(paste)
-                    except:
-                        "Error getting pastes"
-                print("Inserted")
             else:
                 print('No change in pastes...')
             # Sleep
