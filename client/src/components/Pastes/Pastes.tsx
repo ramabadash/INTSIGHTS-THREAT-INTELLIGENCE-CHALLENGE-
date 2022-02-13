@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 /* ----- TYPES ----- */
 import { Paste } from '../../@types/types';
 /* ----- COMPONENTS ----- */
@@ -9,6 +9,11 @@ import './Pastes.css';
 function Pastes({ pastes }: { pastes: Paste[] }) {
   /* ----- STATE ----- */
   const [filteredPastes, setFilteredPastes] = useState<Paste[]>(pastes);
+
+  /* ----- EFFECTS ----- */
+  useEffect(() => {
+    setFilteredPastes(pastes);
+  }, [pastes]);
 
   return (
     <div style={{ marginLeft: '20%' }}>
