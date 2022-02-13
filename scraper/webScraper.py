@@ -17,7 +17,7 @@ website_config = {
     "pagination_selector": ".pagination>li"
 }
 
-my_last_paste = {'Title': '`SPYWARE FOR SALE`', 'Author': 'Anonymous', 'Content': '. Contact Mr. Snow Fall for spyware at (SnowFall28kwsWs@protonmail.com) . \xa0. Remotely view/access/listen through computers. (Keyloggers) (NJ Rat) (Dark Comet) (Babylon RAT) (Nano Core). \xa0. Typical Features of the Trojans include.. * Remote Desktop \xa0 \xa0 \xa0 \xa0* Remote Webcam \xa0 \xa0 \xa0 \xa0 * Built in Keylogger. * Password Recovery \xa0 \xa0 * Remote File Manager \xa0 * Download and Execute. * Remote Terminal \xa0 \xa0 \xa0 * Process Manager \xa0 \xa0 \xa0 * Registry Modification. * Clipboard Access \xa0 \xa0 \xa0. \xa0. Spyware - http://rk66bssr47uqkf2cmtxebmbcdbvd77rs3f665orf4p3jzjfzkqre3tid.onion?page=spyware. \xa0. \xa0. *Posted by Mr. Snow Falls Automated Ad Services. http://rk66bssr47uqkf2cmtxebmbcdbvd77rs3f665orf4p3jzjfzkqre3tid.onion?page=advertisement.', 'Date': '13 Feb 2022, 11:16:37'}
+my_last_paste = {'Title': 'drug.connctions', 'Author': 'Anonymous', 'Content': '. Connections to Reputable Drug Dealers. \xa0. Herion, Crack, Weed, MDMA, Subtex, Morphine, LSD. \xa0. Buy Drugs based on Region from a list of carefully. chosen dealers who have shown reputation.. \xa0. ! This is a New Service - The List will grow with time !. \xa0. http://rk66bssr47uqkf2cmtxebmbcdbvd77rs3f665orf4p3jzjfzkqre3tid.onion?page=drugconnect.', 'Date': '13 Feb 2022, 16:09:47'}
 # Stop updating condition
 is_updated = False
 
@@ -114,12 +114,12 @@ def scrape():
     """
     global is_updated
     global my_last_paste 
+
     html_page = get_landing_page("http://strongerw2ise74v3duebgsvug4mehyhlpa7f6kfwnas7zofs3kov7yd.onion/all")
     # Get pages number and empty list
     number_of_pages = int(get_number_of_pages(html_page, website_config["pagination_selector"]))
     all_data = []
     page = 1
-
     # Run throw all pages from 1 to last
     while page < number_of_pages + 1 and is_updated != True:
         print(f"page: {page}")
