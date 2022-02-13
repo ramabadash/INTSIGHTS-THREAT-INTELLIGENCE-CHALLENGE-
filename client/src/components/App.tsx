@@ -50,11 +50,12 @@ function App() {
       const commonWordsTitleResult = await axios.get(`${BASE_URL}/analysis/common_words_title`);
       const commonWordsContentResult = await axios.get(`${BASE_URL}/analysis/common_words_content`);
       const authorResult = await axios.get(`${BASE_URL}/analysis/per_author`);
+      const totalResult = await axios.get(`${BASE_URL}/analysis/total_amount`);
 
       setCommonWordsTitle(commonWordsTitleResult.data);
       setCommonWordsContent(commonWordsContentResult.data);
       setAuthorAnalytics(authorResult.data);
-      setTotalPastes(pastes.length);
+      setTotalPastes(totalResult.data);
     } catch (error) {
       console.log(error);
     }
