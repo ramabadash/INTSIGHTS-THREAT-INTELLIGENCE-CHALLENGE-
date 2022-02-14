@@ -1,0 +1,31 @@
+.homepage-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 80vw;
+  text-align: center;
+}
+
+.homepage-div h2 {
+  background-color: rgb(3, 145, 145);
+  padding: 0.25em 1em;
+  z-index: -2;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.homepage-div img {
+  width: 25%;
+  height: 40%;
+}
+
+.analytics-par {
+  padding: 0.25em 0.5em;
+  color: rgb(3, 145, 145);
+}
+
+.analytics-par span {
+  margin-left: 1em;
+}

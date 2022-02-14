@@ -5,6 +5,7 @@ import axios from 'axios';
 import NavBar from './NavBar/NavBar';
 import Pastes from './Pastes/Pastes';
 import Analytics from './Analytics/Analytics';
+import HomePage from './Home/HomePage';
 /* ----- TYPES ----- */
 import { Paste } from '../@types/types';
 import { AuthorAnalytics, WordsAnalytics } from '../@types/types';
@@ -92,6 +93,7 @@ function App() {
     <div className='App'>
       <NavBar />
       <Routes>
+        <Route path='/' element={<HomePage />} />
         <Route path='/pastes' element={<Pastes pastes={pastes} />} />
         <Route
           path='/analytics'
