@@ -17,7 +17,7 @@ website_config = {
     "pagination_selector": ".pagination>li"
 }
 
-my_last_paste = {'Title': '+NEW.BANNER.EXCHANGE+', 'Author': 'Anonymous', 'Content': '. \xa0 \xa0 \xa0 \xa0 New Banner Exchange Space Avaliable on Snow Bin . \xa0. Due to a high demand for banner exchanges on Snow Bin, there . has been expanded areas for banner advertisement.. \xa0. If you want to have your website advertised on snowbin in exchange for advertisement . of snowbin on your website now is a good time while there is new space avaliable. . \xa0. You can also pay for quality limited space banner placement if you want your banner to stand out.. See here for more Information on banner placement for both banner exchange and paid banners.. http://snowbin45znsonv227ypgbuvpqyaoolxpdg3nhhfznahe3exif6z7tyd.onion/advertise.php. \xa0. SNOW BIN: http://snowbin45znsonv227ypgbuvpqyaoolxpdg3nhhfznahe3exif6z7tyd.onion.', 'Date': '14 Feb 2022, 08:46:48'}
+my_last_paste = {'Title': 'New Link List 2022', 'Author': 'Anonymous', 'Content': 'http://paste63jpbyn7qcuibsgxfjgo6sbx2adnnswfw7qopvuch674r7cxrad.onion/?paste=7O5uT1PUb4.', 'Date': '14 Feb 2022, 10:18:58'}
 # Stop updating condition
 is_updated = False
 
