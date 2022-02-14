@@ -1,3 +1,8 @@
+.analytic-major {
+  height: 90vh;
+  width: 80vw;
+}
+
 .total-div {
   text-align: center;
   width: 90%;
@@ -20,9 +25,11 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 90%;
+  width: 98%;
+  height: 70vh;
   margin: auto;
   text-align: center;
+  overflow: auto;
 }
 
 .analytics-div {

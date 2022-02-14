@@ -6,7 +6,7 @@ import './HomePage.css';
 
 function HomePage() {
   return (
-    <div className='homepage-div' style={{ marginLeft: '20%' }}>
+    <div className='homepage-div' style={{ marginLeft: '20%', marginTop: '10vh' }}>
       <h2>Welcome to ICEBERG</h2>
       <h3>Dark web searcher - showing the Stronghold site pastes</h3>
       <div className='analytics-par'>

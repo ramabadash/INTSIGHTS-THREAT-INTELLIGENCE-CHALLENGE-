@@ -42,7 +42,7 @@ function Pastes({ pastes }: { pastes: Paste[] }) {
   };
 
   return (
-    <div className='pastes-container' style={{ marginLeft: '20%' }}>
+    <div className='pastes-container' style={{ marginLeft: '20%', marginTop: '10vh' }}>
       <SearchBar pastes={pastes} setFilteredPastes={setFilteredPastes} />
       {filteredPastes.length ? (
         <div className='pastes-list'>
