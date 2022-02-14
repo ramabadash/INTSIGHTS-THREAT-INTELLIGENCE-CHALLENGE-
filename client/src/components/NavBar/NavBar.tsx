@@ -17,9 +17,15 @@ function NavBar() {
 
   return (
     <ul className='navbar'>
-      <li onClick={() => handleClick('/')}>Home</li>
-      <li onClick={() => handleClick('/pastes')}>Pastes</li>
-      <li onClick={() => handleClick('/analytics')}>Analytics</li>
+      <li onClick={() => handleClick('/')}>
+        <i className='fa-solid fa-house'></i> Home
+      </li>
+      <li onClick={() => handleClick('/pastes')}>
+        <i className='fa-solid fa-file'></i> Pastes
+      </li>
+      <li onClick={() => handleClick('/analytics')}>
+        <i className='fa-solid fa-chart-pie'></i> Analytics
+      </li>
     </ul>
   );
 }
