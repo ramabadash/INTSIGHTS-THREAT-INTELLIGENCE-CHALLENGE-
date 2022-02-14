@@ -17,7 +17,7 @@ website_config = {
     "pagination_selector": ".pagination>li"
 }
 
-my_last_paste = {'Title': 'drug.connctions', 'Author': 'Anonymous', 'Content': '. Connections to Reputable Drug Dealers. \xa0. Herion, Crack, Weed, MDMA, Subtex, Morphine, LSD. \xa0. Buy Drugs based on Region from a list of carefully. chosen dealers who have shown reputation.. \xa0. ! This is a New Service - The List will grow with time !. \xa0. http://rk66bssr47uqkf2cmtxebmbcdbvd77rs3f665orf4p3jzjfzkqre3tid.onion?page=drugconnect.', 'Date': '13 Feb 2022, 16:09:47'}
+my_last_paste = {'Title': '+NEW.BANNER.EXCHANGE+', 'Author': 'Anonymous', 'Content': '. \xa0 \xa0 \xa0 \xa0 New Banner Exchange Space Avaliable on Snow Bin . \xa0. Due to a high demand for banner exchanges on Snow Bin, there . has been expanded areas for banner advertisement.. \xa0. If you want to have your website advertised on snowbin in exchange for advertisement . of snowbin on your website now is a good time while there is new space avaliable. . \xa0. You can also pay for quality limited space banner placement if you want your banner to stand out.. See here for more Information on banner placement for both banner exchange and paid banners.. http://snowbin45znsonv227ypgbuvpqyaoolxpdg3nhhfznahe3exif6z7tyd.onion/advertise.php. \xa0. SNOW BIN: http://snowbin45znsonv227ypgbuvpqyaoolxpdg3nhhfznahe3exif6z7tyd.onion.', 'Date': '14 Feb 2022, 08:46:48'}
 # Stop updating condition
 is_updated = False
 
