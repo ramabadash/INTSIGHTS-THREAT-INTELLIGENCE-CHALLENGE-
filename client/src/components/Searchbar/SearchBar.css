@@ -1,7 +1,13 @@
 .searchbar {
-  width: 70%;
+  width: 68%;
   margin-left: 15%;
   margin-top: 0.5em;
-  padding: 0.25em;
+  padding: 0.25em 0.5em;
   font-size: 1.15em;
+  background-color: rgba(32, 33, 53, 0.945);
+  color: whitesmoke;
+  border-radius: 0.25em;
+  border-width: 0.1em;
+  border-color: rgba(122, 122, 122, 0.945);
+  border-style: solid;
 }
