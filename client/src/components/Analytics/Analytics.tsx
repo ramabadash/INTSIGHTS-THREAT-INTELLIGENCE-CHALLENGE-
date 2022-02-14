@@ -33,7 +33,6 @@ function Analytics({ totalPastes, authorAnalytics, commonWordsTitle, commonWords
 
   return (
     <div style={{ marginLeft: '20%' }}>
-      <h2>Analytics</h2>
       <div className='total-div'>
         <h3>
           Total number of pastes : <span>{totalPastes}</span>
