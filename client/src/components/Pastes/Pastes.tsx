@@ -51,7 +51,8 @@ function Pastes({ pastes }: { pastes: Paste[] }) {
               <summary>
                 <h3 className='pastes-title'>{Title}</h3>
                 <h4 className='pastes-details'>
-                  By {Author} | {Date}
+                  <i className='fa-solid fa-user'></i> By {Author} {'  |  '}
+                  <i className='fa-solid fa-clock'></i> {Date}
                 </h4>
                 <p className='polarity-par'>
                   <em>
