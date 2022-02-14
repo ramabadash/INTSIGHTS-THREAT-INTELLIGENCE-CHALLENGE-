@@ -14,6 +14,7 @@
     "@types/react-dom": "^16.9.14",
     "@types/react-redux": "^7.1.22",
     "@types/react-router-dom": "^5.3.3",
+    "@types/sentiment": "^5.0.1",
     "axios": "^0.25.0",
     "chart.js": "^3.7.0",
     "react": "^17.0.2",
@@ -23,6 +24,7 @@
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
+    "sentiment": "^5.0.2",
     "typescript": "~4.1.5"
   },
   "scripts": {

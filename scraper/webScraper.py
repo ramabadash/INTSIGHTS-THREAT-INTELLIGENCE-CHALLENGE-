@@ -17,7 +17,7 @@ website_config = {
     "pagination_selector": ".pagination>li"
 }
 
-my_last_paste = {'Title': 'drug.connctions', 'Author': 'Anonymous', 'Content': '. Connections to Reputable Drug Dealers. \xa0. Herion, Crack, Weed, MDMA, Subtex, Morphine, LSD. \xa0. Buy Drugs based on Region from a list of carefully. chosen dealers who have shown reputation.. \xa0. ! This is a New Service - The List will grow with time !. \xa0. http://rk66bssr47uqkf2cmtxebmbcdbvd77rs3f665orf4p3jzjfzkqre3tid.onion?page=drugconnect.', 'Date': '13 Feb 2022, 16:09:47'}
+my_last_paste = {'Title': 'New Link List 2022', 'Author': 'Anonymous', 'Content': 'http://paste63jpbyn7qcuibsgxfjgo6sbx2adnnswfw7qopvuch674r7cxrad.onion/?paste=7O5uT1PUb4.', 'Date': '14 Feb 2022, 10:18:58'}
 # Stop updating condition
 is_updated = False
 

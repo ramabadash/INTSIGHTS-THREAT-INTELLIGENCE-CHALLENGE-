@@ -73,7 +73,7 @@ function App() {
         console.log(JSON.parse(event.data));
         const updates = JSON.parse(event.data);
 
-        setPastes(prevPastes => [...prevPastes, ...updates.pastes]); // Update pastes
+        setPastes(prevPastes => [...updates.pastes, ...prevPastes]); // Update pastes
         setCommonWordsTitle(updates.common_words_title); // Update common words title
         setCommonWordsContent(updates.common_words_content); // Update common words content
         setAuthorAnalytics(updates.authors_analysis); // Update authors analysis
