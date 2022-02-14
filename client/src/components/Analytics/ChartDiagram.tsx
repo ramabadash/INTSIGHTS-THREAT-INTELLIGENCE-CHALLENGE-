@@ -7,24 +7,25 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 interface Props {
   chartData: number[];
   labels: string[];
+  title: string;
 }
 
-function ChartDiagram({ chartData, labels }: Props) {
+function ChartDiagram({ chartData, labels, title }: Props) {
   /* ----- CONSTANTS ----- */
   const colorsPalette = [
-    'rgba(255, 99, 132, 0.2)',
-    'rgba(54, 162, 235, 0.2)',
-    'rgba(255, 206, 86, 0.2)',
-    'rgba(75, 192, 192, 0.2)',
-    'rgba(153, 102, 255, 0.2)',
-    'rgba(255, 159, 64, 0.2)',
-    'rgba(200, 120, 10, 0.2)',
-    'rgba(0, 120, 59, 0.2)',
-    'rgba(184, 50, 29, 0.2)',
-    'rgba(24, 25, 43, 0.2)',
-    'rgba(255, 20, 130, 0.2)',
-    'rgba(200, 130, 20, 0.2)',
-    'rgba(150, 20, 1, 0.2)',
+    'rgba(255, 99, 132, 0.5)',
+    'rgba(54, 162, 235, 0.5)',
+    'rgba(255, 206, 86, 0.5)',
+    'rgba(75, 192, 192, 0.5)',
+    'rgba(153, 102, 255, 0.5)',
+    'rgba(255, 159, 64, 0.5)',
+    'rgba(200, 120, 10, 0.5)',
+    'rgba(0, 120, 59, 0.5)',
+    'rgba(184, 50, 29, 0.5)',
+    'rgba(24, 25, 43, 0.5)',
+    'rgba(255, 20, 130, 0.5)',
+    'rgba(200, 130, 20, 0.5)',
+    'rgba(150, 20, 1, 0.5)',
   ];
 
   const data = {
@@ -47,12 +48,16 @@ function ChartDiagram({ chartData, labels }: Props) {
       legend: {
         display: true,
         labels: {
-          color: 'black',
+          color: 'darkGrey',
           font: {
-            size: 10,
-            // width: 10,
-            // height: 10,
+            size: 8,
           },
+        },
+        title: {
+          display: true,
+          text: title,
+          font: { size: 16, weight: 'bold' },
+          color: 'whiteSmoke',
         },
       },
     },

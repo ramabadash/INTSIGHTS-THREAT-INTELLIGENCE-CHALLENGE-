@@ -1,8 +1,43 @@
+/* ----- HORIZONTAL ----- */
+.navbar-horizontal {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 10vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(32, 33, 53, 0.945);
+}
+
+.navbar-horizontal li {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  height: 10vh;
+  top: 0;
+}
+
+.navbar-horizontal img {
+  height: 10vh;
+  width: 5vw;
+  margin-left: 1vw;
+}
+
+#notification-nav {
+  float: right;
+  margin: 0.25em 0.5em 0em 0em;
+  font-size: 1.5em;
+}
+
+/* ----- VERTICAL ----- */
+
 .navbar {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  top: 0;
+  top: 10vh;
   width: 18%;
   background-color: rgba(32, 33, 53, 0.945);
   position: fixed;
@@ -10,7 +45,6 @@
   overflow: auto;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
     rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  /* box-shadow: rgba(136, 165, 191, 0.48) 3px 1px 8px 0px, rgba(78, 78, 78, 0.8) -3px -1px 8px 0px; */
 }
 
 .navbar li {
@@ -23,15 +57,16 @@
   transition: top ease 5s;
 }
 
+.navbar li:first-child {
+  margin-top: 1.25em;
+}
+
 .navbar li.active {
   background-color: #02442c;
   color: white;
 }
 
 .navbar li:hover:not(.active) {
-  /* transition: background-color 500ms linear;
-  background-color: whitesmoke;
-  color: rgba(32, 33, 53, 0.945); */
   position: relative;
   top: -5px;
 }
