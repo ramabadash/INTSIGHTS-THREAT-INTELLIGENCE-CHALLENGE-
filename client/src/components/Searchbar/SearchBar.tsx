@@ -26,7 +26,7 @@ function SearchBar({ pastes, setFilteredPastes }: Props) {
       className='searchbar'
       minLength={0}
       debounceTimeout={500}
-      placeholder='Search by title or content'
+      placeholder='Search words by title or content.. 🔎'
       onChange={event => handleInputChange(event)}
     />
   );
