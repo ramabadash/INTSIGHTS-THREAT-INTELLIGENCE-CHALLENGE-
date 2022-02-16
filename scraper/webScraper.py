@@ -17,7 +17,7 @@ website_config = {
     "pagination_selector": ".pagination>li"
 }
 
-my_last_paste = {"Title": "Dark Matter Project", "Author": "Anonymous", "Content": "Dark Matter Project. Deep Web Market Place. V3 Address : http://dark4s5k7jw5zjgkm5wzo3zbvwpwvzi7gqo5kpvzfggtcnzexdu7gsyd.onion. Contact : darkmatterproject@protonmail.com.", "Date": "16 Feb 2022, 11:29:41"}
+my_last_paste = {"Title": "Discord", "Author": "Anonymous", "Content": "Discord. https://discord.com/. \u00a0. Server Status. https://discordstatus.com. \u00a0. Discord Servers. https://discords.com/.", "Date": "16 Feb 2022, 12:22:00"}
 # Stop updating condition
 is_updated = False
 
