@@ -133,10 +133,12 @@ function App() {
   const memoAuthorAnalytics = React.useMemo(() => authorAnalytics, [authorAnalytics]);
   const memoCommonWordsTitle = React.useMemo(() => commonWordsTitle, [commonWordsTitle]);
   const memoCommonWordsContent = React.useMemo(() => commonWordsContent, [commonWordsContent]);
+  // Memoize notifications props
+  const memoNotifications = React.useMemo(() => notifications, [notifications]);
 
   return (
     <div className='App'>
-      <NavBar />
+      <NavBar notifications={memoNotifications} />
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/pastes' element={<Pastes pastes={memoPastes} />} />
