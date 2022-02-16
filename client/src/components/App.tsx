@@ -92,7 +92,7 @@ function App() {
         const notification = {
           message: `You have ${updates.pastes.length} new pastes`,
           type: 'success',
-          time: moment().format('HH:mm:ss'),
+          time: moment().format('llll'),
         };
         setNotifications(prevNotifications => [notification, ...prevNotifications]);
       });
@@ -118,7 +118,7 @@ function App() {
         const notification = {
           message: 'Internal server error',
           type: 'error',
-          time: moment().format('HH:mm:ss'),
+          time: moment().format('llll'),
         };
         setNotifications(prevNotifications => [notification, ...prevNotifications]);
       };
