@@ -17,7 +17,7 @@ website_config = {
     "pagination_selector": ".pagination>li"
 }
 
-my_last_paste = {"Title": "BITCOIN GENERAT0R v.2022", "Author": "Anonymous", "Content": "BITCOIN GENERATOR v.2022. \u00a0. Earn Free Bitcoins in just a few moments without any investment! Use our Bitcoin Generator and you will receive free unlimited Bitcoin instantly!. \u00a0. http://2222asi7crk3yh5dbanvul4uldpktisa637rznipn3g5qodyzqz5urqd.onion/.", "Date": "16 Feb 2022, 10:00:10"}
+my_last_paste = {"Title": "Dark Matter Project", "Author": "Anonymous", "Content": "Dark Matter Project. Deep Web Market Place. V3 Address : http://dark4s5k7jw5zjgkm5wzo3zbvwpwvzi7gqo5kpvzfggtcnzexdu7gsyd.onion. Contact : darkmatterproject@protonmail.com.", "Date": "16 Feb 2022, 11:29:41"}
 # Stop updating condition
 is_updated = False
 
