@@ -17,7 +17,7 @@ website_config = {
     "pagination_selector": ".pagination>li"
 }
 
-my_last_paste = {"Title": "Discord", "Author": "Anonymous", "Content": "Discord. https://discord.com/. \u00a0. Server Status. https://discordstatus.com. \u00a0. Discord Servers. https://discords.com/.", "Date": "16 Feb 2022, 12:22:00"}
+my_last_paste = {"Title": "Dark Leak Market", "Author": "Anonymous", "Content": "DARK LEAK MARKET. \u00a0. Leaked databases & documents.. \u00a0. http://ydnvjy3hfvmhkf7ayjhfttfamanpyholz2he4sejeokk3ot5ms4fa5ad.onion/.", "Date": "16 Feb 2022, 15:00:09"}
 # Stop updating condition
 is_updated = False
 
