@@ -66,7 +66,11 @@ function NavBar({ notifications, setNotifications }: Props) {
 
       {/* Notifications */}
       {showNotifications ? (
-        <Notifications notifications={notifications} setNotifications={setNotifications} />
+        <Notifications
+          notifications={notifications}
+          setNotifications={setNotifications}
+          setShowNotifications={setShowNotifications}
+        />
       ) : (
         ''
       )}
