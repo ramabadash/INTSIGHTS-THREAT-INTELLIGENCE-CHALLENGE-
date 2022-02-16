@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import axios from 'axios';
+import moment from 'moment';
 /* ----- COMPONENTS ----- */
 import NavBar from './NavBar/NavBar';
 import Pastes from './Pastes/Pastes';
@@ -8,18 +9,21 @@ import Analytics from './Analytics/Analytics';
 import HomePage from './Home/HomePage';
 /* ----- TYPES ----- */
 import { Paste } from '../@types/types';
-import { AuthorAnalytics, WordsAnalytics } from '../@types/types';
+import { AuthorAnalytics, WordsAnalytics, Notification } from '../@types/types';
 import { BASE_URL } from '../index';
 
 function App() {
   /* ----- STATES ----- */
   const [pastes, setPastes] = useState<Paste[]>([]);
   const [stream, setStream] = useState<any>(null);
+
   //Analytics
   const [totalPastes, setTotalPastes] = useState(pastes.length);
   const [authorAnalytics, setAuthorAnalytics] = useState<AuthorAnalytics[]>([]);
   const [commonWordsTitle, setCommonWordsTitle] = useState<WordsAnalytics | {}>({});
   const [commonWordsContent, setCommonWordsContent] = useState<WordsAnalytics | {}>({});
+  // Notifications
+  const [notifications, setNotifications] = useState<Notification[]>([]);
 
   /* ----- EFFECT ----- */
   useEffect(() => {
@@ -66,12 +70,16 @@ function App() {
   const streamPastes = async () => {
     if (!stream) {
       console.log('Creating stream...');
+
       // Create connection to server
       const eventSource = new EventSource(`${BASE_URL}/stream`);
       setStream(eventSource);
+
       // Listen to updates
       eventSource.addEventListener('update', (event: any) => {
         console.log(JSON.parse(event.data));
+
+        // Update states - pasts and analytics
         const updates = JSON.parse(event.data);
 
         setPastes(prevPastes => [...updates.pastes, ...prevPastes]); // Update pastes
@@ -79,10 +87,47 @@ function App() {
         setCommonWordsContent(updates.common_words_content); // Update common words content
         setAuthorAnalytics(updates.authors_analysis); // Update authors analysis
         setTotalPastes(updates.number_of_pastes); // Update total pastes
+
+        // Update notifications
+        const notification = {
+          message: `You have ${updates.pastes.length} new pastes`,
+          type: 'success',
+          time: moment().format('HH:mm:ss'),
+        };
+        setNotifications(prevNotifications => [notification, ...prevNotifications]);
       });
+
+      // Listen to scrape and DB errors
+      eventSource.addEventListener('failed', (event: any) => {
+        console.log(JSON.parse(event.data));
+        const error = JSON.parse(event.data);
+
+        // Update notifications
+        const notification = {
+          message: error,
+          type: 'error',
+          time: moment().format('llll'),
+        };
+        setNotifications(prevNotifications => [notification, ...prevNotifications]);
+      });
+
+      // Listen to stream errors
+      eventSource.onerror = () => {
+        console.log('Stream error');
+        // Update notifications
+        const notification = {
+          message: 'Internal server error',
+          type: 'error',
+          time: moment().format('HH:mm:ss'),
+        };
+        setNotifications(prevNotifications => [notification, ...prevNotifications]);
+      };
     }
   };
 
+  /* ----- MEMO PROPS ----- */
+  // Memoize pastes props
+  const memoPastes = React.useMemo(() => pastes, [pastes]);
   // Memoize the analytics props
   const memoTotalPastes = React.useMemo(() => totalPastes, [totalPastes]);
   const memoAuthorAnalytics = React.useMemo(() => authorAnalytics, [authorAnalytics]);
@@ -94,7 +139,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/pastes' element={<Pastes pastes={pastes} />} />
+        <Route path='/pastes' element={<Pastes pastes={memoPastes} />} />
         <Route
           path='/analytics'
           element={
