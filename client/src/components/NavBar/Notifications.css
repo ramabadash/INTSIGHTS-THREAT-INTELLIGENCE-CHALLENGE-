@@ -1,0 +1,46 @@
+/* ----- NOTIFICATIONS ----- */
+
+.notification-num {
+  font-size: 0.5em;
+  margin-left: -1em;
+  margin-top: 0;
+  background-color: brown;
+  color: white;
+  padding: 0em 0.25em;
+  border-radius: 50%;
+}
+
+.notification-div {
+  position: absolute;
+  top: 9vh;
+  right: 2vw;
+  background-color: rgba(128, 128, 128, 0.945);
+  color: rgb(18, 20, 56);
+  padding: 0.25em;
+  border-radius: 0.25em;
+  border: 3px solid rgb(18, 20, 56);
+  width: 28vw;
+  max-height: 30vh;
+  overflow-y: auto;
+  text-align: center;
+}
+
+.notification-div p {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin: 0;
+  padding: 0.25em;
+}
+
+.notification-div p:not(:first-child) {
+  border-top: rgb(18, 20, 56) solid 2px;
+}
+
+.notyf-time {
+  display: block;
+  font-size: 0.75em;
+}
+
+.notyf-type {
+  font-size: 0.75em;
+  margin-right: 0.25em;
+}
