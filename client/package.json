@@ -17,6 +17,7 @@
     "@types/sentiment": "^5.0.1",
     "axios": "^0.25.0",
     "chart.js": "^3.7.0",
+    "moment": "^2.29.1",
     "react": "^17.0.2",
     "react-chartjs-2": "^4.0.1",
     "react-debounce-input": "^3.2.5",
