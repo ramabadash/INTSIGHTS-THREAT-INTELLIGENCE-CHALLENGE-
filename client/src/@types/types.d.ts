@@ -26,3 +26,11 @@ export interface WordsAnalytics {
   total_pastes_payment: number;
   total_pastes_hot: number;
 }
+
+/* ----- NOTIFICATION ----- */
+
+export interface Notification {
+  message: string;
+  type: string;
+  time: string;
+}
