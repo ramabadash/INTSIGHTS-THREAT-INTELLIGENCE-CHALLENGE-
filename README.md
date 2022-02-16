@@ -34,6 +34,7 @@
 
 ## So, how does it work ❓
 
+- **I use a docker image to create a proxy for browsing in tor browser**
 - **Information on pastes is collected from the "Stronghold" website every 2 minutes**
 - **The information is processed and stored in mongoDB**
 - **When a user logs in to the dashboard : 1️⃣ He gets the information stored so far . 2️⃣ A stream connection is established**
@@ -68,7 +69,7 @@
 #### Back:
 
 - **Routers division 📂**
-- **Pagination - taking from db limited number of pastes bu query 📃**
+- **Pagination - taking from db limited number of pastes by query 📃**
 - **Dates analytics 📅**
 - **NER & Sentiment analytics - in the server 💘**
 - **Implementation custom alerts 🔔**
