@@ -138,7 +138,7 @@ function App() {
 
   return (
     <div className='App'>
-      <NavBar notifications={memoNotifications} />
+      <NavBar notifications={memoNotifications} setNotifications={setNotifications} />
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/pastes' element={<Pastes pastes={memoPastes} />} />

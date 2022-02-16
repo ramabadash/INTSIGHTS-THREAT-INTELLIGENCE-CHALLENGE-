@@ -3,10 +3,23 @@ import React from 'react';
 import { Notification } from '../../@types/types';
 /* ----- STYLES ----- */
 import './Notifications.css';
+/* ----- TYPES ----- */
+interface Props {
+  notifications: Notification[];
+  setNotifications: React.Dispatch<React.SetStateAction<Notification[]>>;
+}
 
-function Notifications({ notifications }: { notifications: Notification[] }) {
+function Notifications({ notifications, setNotifications }: Props) {
+  /* ----- FUNCTIONS ----- */
+  const handleDelete = () => {
+    setNotifications([]);
+  };
+
   return (
     <div className='notification-div'>
+      <span className='clear-btn' onClick={handleDelete}>
+        <i className='fa-solid fa-trash-can'></i> clear all pastes
+      </span>
       {notifications.length ? (
         notifications.map(({ message, type, time }, index) => (
           <p key={index}>

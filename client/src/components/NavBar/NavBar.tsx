@@ -11,9 +11,10 @@ import './NavBar.css';
 
 interface Props {
   notifications: Notification[];
+  setNotifications: React.Dispatch<React.SetStateAction<Notification[]>>;
 }
 
-function NavBar({ notifications }: Props) {
+function NavBar({ notifications, setNotifications }: Props) {
   /* ----- STATES ----- */
   const [unreadNotification, setUnreadNotification] = useState<number>(notifications.length);
   const [showNotifications, setShowNotifications] = useState<boolean>(false);
@@ -23,7 +24,13 @@ function NavBar({ notifications }: Props) {
 
   /* ----- EFFECT ----- */
   useEffect(() => {
-    setUnreadNotification(notifications.length - lastNotificationAmount);
+    // Zero out the unread notification if the amount of notifications has decreased
+    setUnreadNotification(
+      notifications.length - lastNotificationAmount < 0
+        ? 0
+        : notifications.length - lastNotificationAmount
+    );
+
     setLastNotificationAmount(notifications.length);
   }, [notifications]);
 
@@ -58,7 +65,11 @@ function NavBar({ notifications }: Props) {
       </ul>
 
       {/* Notifications */}
-      {showNotifications ? <Notifications notifications={notifications} /> : ''}
+      {showNotifications ? (
+        <Notifications notifications={notifications} setNotifications={setNotifications} />
+      ) : (
+        ''
+      )}
 
       {/* Vertical */}
       <ul className='navbar'>
