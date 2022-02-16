@@ -17,7 +17,7 @@ website_config = {
     "pagination_selector": ".pagination>li"
 }
 
-my_last_paste = {"Title": "Dark Leak Market", "Author": "Anonymous", "Content": "DARK LEAK MARKET. \u00a0. Leaked databases & documents.. \u00a0. http://ydnvjy3hfvmhkf7ayjhfttfamanpyholz2he4sejeokk3ot5ms4fa5ad.onion/.", "Date": "16 Feb 2022, 15:00:09"}
+my_last_paste = {"Title": "Dark Matter Project", "Author": "Anonymous", "Content": "Dark Matter Project. Deep Web Market Place. V3 Address : http://dark4s5k7jw5zjgkm5wzo3zbvwpwvzi7gqo5kpvzfggtcnzexdu7gsyd.onion. Contact : darkmatterproject@protonmail.com.", "Date": "16 Feb 2022, 16:50:55"}
 # Stop updating condition
 is_updated = False
 

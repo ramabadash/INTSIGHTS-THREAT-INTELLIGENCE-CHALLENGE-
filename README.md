@@ -32,7 +32,7 @@
 
 ## My app - Iceberg 🧊
 
-### So, how does it work ❓
+## So, how does it work ❓
 
 - **Information on pastes is collected from the "Stronghold" website every 2 minutes**
 - **The information is processed and stored in mongoDB**
@@ -45,7 +45,7 @@
 - **For efficiency - the site is only scraped until the last post saved on a server that has already been scraped. If no one is found, it will be scanned to the last page! Save a lot of time! ⏳**
 - **The client only receives the complete information once and only receives the updated information if any**
 
-### Features - 💫
+## Features - 💫
 
 - **Over 800 pastes and counting! 🔄**
 - **You can see all the Pastes posted on the site and collected 📃**
@@ -54,7 +54,7 @@
 - **Search by title and content 🔎**
 - **Displays the polarity of each title and content on the paste ⚖**
 
-### Future Plans 📅👩‍🚀
+## Future Plans 📅👩‍🚀
 
 #### Front:
 
@@ -92,6 +92,8 @@
 ## <img alt="pastes" src="./readme-pics/pastes.png">
 
 ## <img alt="filtered-pastes" src="./readme-pics/filtered-pastes.png">
+
+## <img alt="open-paste" src="./readme-pics/open-paste.png">
 
 ## <img alt="analytics" src="./readme-pics/analytics.png">
 
